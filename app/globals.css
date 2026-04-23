@@ -1,0 +1,625 @@
+/* ─── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #f9fafb;
+  --border: #e2e5ea;
+  --border-strong: #c8cdd6;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #2563eb;
+  --accent-light: #eff6ff;
+  --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-light: #fef2f2;
+  --warning-bg: #fff7ed;
+  --warning-border: #fed7aa;
+  --warning-text: #c2410c;
+  --success: #16a34a;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+  font-family: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-height: 1.5; }
+
+/* ─── LAYOUT ───────────────────────────────────────────────── */
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+/* ─── HEADER ───────────────────────────────────────────────── */
+.main-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0 -1.25rem 1.5rem;
+  padding: 0 1.25rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header-content h1 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--text-primary);
+}
+
+/* ─── BUTTONS ──────────────────────────────────────────────── */
+.btn-premium-add {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.btn-premium-add:hover { background: var(--accent-hover); }
+
+.btn-premium-blue {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-premium-blue:hover { background: var(--accent-hover); }
+
+.btn-action {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-secondary);
+  letter-spacing: .04em;
+  transition: all .15s;
+}
+.btn-action:hover { background: var(--surface-2); color: var(--text-primary); }
+.btn-action.edit:hover { border-color: var(--accent); color: var(--accent); }
+.btn-action.delete:hover { border-color: var(--danger); color: var(--danger); }
+
+.btn-mini {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all .15s;
+  color: var(--text-secondary);
+}
+.btn-mini:hover { background: var(--surface-2); border-color: var(--border-strong); }
+.btn-mini.delete:hover { background: var(--danger-light); border-color: var(--danger); }
+
+.btn-confirm-add {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 32px;
+  white-space: nowrap;
+  letter-spacing: .04em;
+}
+.btn-confirm-add:hover { background: var(--accent-hover); }
+
+.btn-save-circle {
+  background: var(--success);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-danger-confirm {
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .04em;
+}
+.btn-cancel-modal {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ─── NAV ──────────────────────────────────────────────────── */
+.area-navigation {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px 8px;
+}
+
+.nav-btn-all {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-secondary);
+  letter-spacing: .06em;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-btn-all.active,
+.nav-btn-all:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.nav-btn-item {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.nav-btn-item:hover { background: var(--surface-2); border-color: var(--border); color: var(--text-primary); }
+.nav-btn-item.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+/* ─── FORM SECTION ─────────────────────────────────────────── */
+.premium-card-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.premium-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.premium-grid-areas {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ─── AREA CARDS ───────────────────────────────────────────── */
+.premium-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.area-card-header {
+  padding: .875rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: background .15s;
+}
+.area-card-header:not(.editing):hover { background: #f3f4f6; }
+
+.header-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.area-title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.area-title-group h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.coordinador-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 10px;
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+
+.header-edit-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ─── TABLE ────────────────────────────────────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.premium-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.premium-table thead tr {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.premium-table th {
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.premium-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text-primary);
+}
+
+.premium-table tbody tr:last-child td { border-bottom: none; }
+.premium-table tbody tr:hover td { background: #fafafa; }
+
+.row-error-status td { background: var(--warning-bg) !important; }
+.row-error-status:hover td { background: #fef3ea !important; }
+
+.ni-cell span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* ─── INLINE INPUTS ────────────────────────────────────────── */
+.inp-table-add {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+  transition: border-color .15s, box-shadow .15s;
+  min-width: 0;
+  width: 100%;
+  font-family: inherit;
+}
+.inp-table-add:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+}
+.inp-table-add::placeholder { color: var(--text-muted); }
+
+/* ─── INLINE EDIT GRID (equipo editing) ─────────────────────── */
+.inline-edit-grid {
+  display: grid;
+  grid-template-columns: 100px 140px 140px 90px 80px 140px 100px 120px 1fr auto auto;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--accent-light);
+  border-top: 2px solid var(--accent);
+}
+
+/* ─── ADD ROW ──────────────────────────────────────────────── */
+.add-row-style td {
+  background: var(--surface-2);
+  border-top: 1px dashed var(--border-strong);
+}
+
+.inline-add-grid {
+  display: grid;
+  grid-template-columns: 100px 140px 140px 90px 80px 140px 100px 120px 1fr auto;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+/* ─── MAL ESTADO CHECKBOX ──────────────────────────────────── */
+.mal-estado-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--warning-text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ─── MODAL ────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.modal-premium {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  min-width: 300px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+}
+
+.modal-icon { font-size: 28px; margin-bottom: .75rem; }
+
+.modal-premium h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.modal-btns-group {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* ─── DASHBOARD CONTENT ─────────────────────────────────────── */
+.dashboard-content { padding: 0; }
+
+/* ─── INPUT INLINE DARK (area edit) ────────────────────────── */
+.input-inline-dark {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+.input-inline-dark:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+}
+
+/* ─── PRINT — ESTILO EXCEL ───────────────────────────────────── */
+@media print {
+  @page {
+    size: landscape;
+    margin: 1cm 1.2cm;
+    /* Elimina fecha, título y URL que el navegador agrega */
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Ocultar TODO excepto las tablas */
+  .no-print { display: none !important; }
+  .main-header { display: none !important; }
+  .area-navigation { display: none !important; }
+  .area-card-header { display: block !important; background: #1F4E79 !important; border-radius: 0; padding: 5pt 6pt; border: 1px solid #1F4E79; }
+  .area-title-group h2 { color: #fff !important; font-size: 10pt; font-weight: 700; }
+  .area-title-group h2 span { display: none; }
+  .coordinador-badge { color: #BDD7EE !important; background: transparent !important; border: none !important; font-size: 8pt; font-weight: 600; }
+  .header-display { display: flex; align-items: center; gap: 1rem; }
+  .header-display > div:last-child { display: none !important; }
+
+  body {
+    background: white;
+    font-family: 'Calibri', 'Arial', sans-serif;
+    font-size: 9pt;
+    color: #000;
+  }
+
+  .app-container { max-width: 100%; padding: 0; }
+  .dashboard-content { padding: 0; }
+
+  .premium-card {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 1.5cm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Tabla Excel */
+  .table-responsive { overflow: visible; }
+
+  .premium-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    table-layout: fixed;
+  }
+
+  /* Anchos de columna tipo Excel */
+  .premium-table th:nth-child(1),
+  .premium-table td:nth-child(1) { width: 70pt; }   /* NI */
+
+  .premium-table th:nth-child(2),
+  .premium-table td:nth-child(2) { width: 100pt; }  /* RESPONSABLE */
+
+  .premium-table th:nth-child(3),
+  .premium-table td:nth-child(3) { width: 100pt; }  /* MARCA */
+
+  .premium-table th:nth-child(4),
+  .premium-table td:nth-child(4) { width: 55pt; }   /* DISCO */
+
+  .premium-table th:nth-child(5),
+  .premium-table td:nth-child(5) { width: 45pt; }   /* RAM */
+
+  .premium-table th:nth-child(6),
+  .premium-table td:nth-child(6) { width: 80pt; }   /* CPU */
+
+  .premium-table th:nth-child(7),
+  .premium-table td:nth-child(7) { width: 60pt; }   /* MONITOR */
+
+  .premium-table th:nth-child(8),
+  .premium-table td:nth-child(8) { width: 80pt; }   /* MOUSE/TECLADO */
+
+  .premium-table th:nth-child(9),
+  .premium-table td:nth-child(9) { width: auto; }   /* OBSERVACIONES */
+
+  /* Encabezados de columna — azul Excel */
+  .premium-table thead tr {
+    background: #2E75B6 !important;
+  }
+
+  .premium-table th {
+    background: #2E75B6 !important;
+    color: #ffffff !important;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 4pt 5pt;
+    border: 1px solid #1a5c99;
+    text-align: left;
+  }
+
+  /* Filas alternas — zebra stripes Excel */
+  .premium-table tbody tr:nth-child(even) td {
+    background: #DEEAF1 !important;
+  }
+  .premium-table tbody tr:nth-child(odd) td {
+    background: #ffffff !important;
+  }
+
+  .premium-table td {
+    padding: 3.5pt 5pt;
+    border: 1px solid #B8CCE4;
+    vertical-align: middle;
+    color: #000 !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Fila de mal estado — naranja Excel */
+  .row-error-status td {
+    background: #FCE4D6 !important;
+    color: #833C00 !important;
+  }
+
+  /* NI badge — sin estilos fancy */
+  .ni-cell span {
+    background: transparent !important;
+    color: #000 !important;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    font-size: 8pt;
+  }
+
+  /* Ocultar fila de añadir */
+  .add-row-style { display: none !important; }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inline-add-grid,
+  .inline-edit-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .header-display { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  .area-title-group { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .premium-grid-areas { flex-direction: column; }
+  .premium-grid-areas input,
+  .premium-grid-areas button { width: 100%; }
+}

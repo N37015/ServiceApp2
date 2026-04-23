@@ -1,0 +1,96 @@
+{
+  "node": {
+    "40e1b8cbef7acfe26879823132c7569850fb587ac2": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "eliminarEquipo",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "eliminarEquipo"
+    },
+    "4020417faae354b9cd8207fbd52d36fe67f5f9e589": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "eliminarArea",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "eliminarArea"
+    },
+    "40c99c9ce653a48d7ae60cd44a3d727a9750170bee": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "actualizarRegistro",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "actualizarRegistro"
+    },
+    "40cbcc499de78e076347e6e22f093d2eb24f1f315e": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "crearArea",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "crearArea"
+    },
+    "4013299a5276bd8b00db58a799c437dca98b866dd3": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "actualizarArea",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "actualizarArea"
+    },
+    "403d8a796ce59c815ec9b05dc2f74d814f61b6fd1e": {
+      "workers": {
+        "app/page": {
+          "moduleId": 57526,
+          "async": false,
+          "exportedName": "crearRegistro",
+          "filename": "app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "app/actions.ts",
+      "exportedName": "crearRegistro"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "CXDxRC9vLJw9wgyQJ2lcsNuWLiCIKOxrpaOKJGZt6vY="
+}
