@@ -94,8 +94,25 @@ async function eliminarEquipo(id) {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/');
 }
 async function crearArea(fd) {
-    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('INSERT INTO areas (nombre, coordinador) VALUES (?, ?)').run(fd.get('nombre_area'), fd.get('coordinador'));
+    const nombre = String(fd.get('nombre_area') || '').trim();
+    const coordinador = String(fd.get('coordinador') || '').trim();
+    // Validación: no permitir áreas repetidas por nombre (case-insensitive)
+    const nombreLower = nombre.toLowerCase();
+    const existe = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('SELECT id FROM areas WHERE LOWER(nombre) = ?').get(nombreLower);
+    if (existe) {
+        // No se inserta, solo se revalida para que se refresque la UI.
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/');
+        return {
+            ok: false,
+            reason: 'duplicate',
+            nombre
+        };
+    }
+    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('INSERT INTO areas (nombre, coordinador) VALUES (?, ?)').run(nombre, coordinador);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/');
+    return {
+        ok: true
+    };
 }
 async function actualizarArea(fd) {
     __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('UPDATE areas SET nombre = ?, coordinador = ? WHERE id = ?').run(fd.get('nombre_area'), fd.get('coordinador'), fd.get('id'));

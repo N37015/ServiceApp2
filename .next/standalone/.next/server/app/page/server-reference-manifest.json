@@ -1,6 +1,6 @@
 {
   "node": {
-    "40e1b8cbef7acfe26879823132c7569850fb587ac2": {
+    "40472b5ed774b23a32b1f80120cccb01b97b1b1d08": {
       "workers": {
         "app/page": {
           "moduleId": 57526,
@@ -15,7 +15,7 @@
       "exportedName": "eliminarEquipo",
       "filename": "app/actions.ts"
     },
-    "4020417faae354b9cd8207fbd52d36fe67f5f9e589": {
+    "40f9adb1870e5082bd7ad213a9cd168aeb7c628cab": {
       "workers": {
         "app/page": {
           "moduleId": 57526,
@@ -30,7 +30,7 @@
       "exportedName": "eliminarArea",
       "filename": "app/actions.ts"
     },
-    "40c99c9ce653a48d7ae60cd44a3d727a9750170bee": {
+    "40314eff8f8edb65a3f31b51d5af8d878ad518a44c": {
       "workers": {
         "app/page": {
           "moduleId": 57526,
@@ -45,7 +45,7 @@
       "exportedName": "actualizarRegistro",
       "filename": "app/actions.ts"
     },
-    "40cbcc499de78e076347e6e22f093d2eb24f1f315e": {
+    "401420a859f78757cbcce8a210aa1a80468d579fce": {
       "workers": {
         "app/page": {
           "moduleId": 57526,
@@ -60,7 +60,7 @@
       "exportedName": "crearArea",
       "filename": "app/actions.ts"
     },
-    "4013299a5276bd8b00db58a799c437dca98b866dd3": {
+    "404c71d40dc6a4754b17a80cfba7476fc970bbeca3": {
       "workers": {
         "app/page": {
           "moduleId": 57526,
@@ -75,7 +75,7 @@
       "exportedName": "actualizarArea",
       "filename": "app/actions.ts"
     },
-    "403d8a796ce59c815ec9b05dc2f74d814f61b6fd1e": {
+    "40caa993b0b03539a44fc52e3737753166c0b38143": {
       "workers": {
         "app/page": {
           "moduleId": 57526,

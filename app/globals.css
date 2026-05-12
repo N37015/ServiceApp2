@@ -433,6 +433,16 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
   backdrop-filter: blur(2px);
 }
 
+/* Asegura que el modal de confirmación (cuando hay otro modal abierto) quede por encima */
+.modal-overlay.modal-confirmation {
+  z-index: 10000;
+}
+
+.modal-overlay.modal-confirmation .modal-premium {
+  z-index: 10001;
+}
+
+
 .modal-premium {
   background: var(--surface);
   border-radius: var(--radius-lg);
@@ -447,8 +457,16 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
 .modal-premium h3 {
   font-size: 15px;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: .75rem;
   color: var(--text-primary);
+}
+
+.modal-detail {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .modal-btns-group {
@@ -486,16 +504,37 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
     margin-bottom: 0;
   }
 
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  *, *::before, *::after { 
+    -webkit-print-color-adjust: exact !important; 
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 
   /* Ocultar TODO excepto las tablas */
   .no-print { display: none !important; }
   .main-header { display: none !important; }
   .area-navigation { display: none !important; }
-  .area-card-header { display: block !important; background: #1F4E79 !important; border-radius: 0; padding: 5pt 6pt; border: 1px solid #1F4E79; }
-  .area-title-group h2 { color: #fff !important; font-size: 10pt; font-weight: 700; }
+  .area-card-header { 
+    display: block !important; 
+    background: #1F4E79 !important; 
+    border-radius: 0; 
+    padding: 5pt 6pt; 
+    border: 1px solid #1F4E79 !important;
+    color: #fff !important;
+  }
+  .area-title-group h2 { 
+    color: #FFFFFF !important; 
+    font-size: 10pt; 
+    font-weight: 700; 
+  }
   .area-title-group h2 span { display: none; }
-  .coordinador-badge { color: #BDD7EE !important; background: transparent !important; border: none !important; font-size: 8pt; font-weight: 600; }
+  .coordinador-badge { 
+    color: #BDD7EE !important; 
+    background: transparent !important; 
+    border: none !important; 
+    font-size: 8pt; 
+    font-weight: 600; 
+  }
   .header-display { display: flex; align-items: center; gap: 1rem; }
   .header-display > div:last-child { display: none !important; }
 
@@ -563,12 +602,12 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
 
   .premium-table th {
     background: #2E75B6 !important;
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     font-size: 8pt;
     font-weight: 700;
     letter-spacing: .04em;
     padding: 4pt 5pt;
-    border: 1px solid #1a5c99;
+    border: 1px solid #1a5c99 !important;
     text-align: left;
   }
 
@@ -610,6 +649,61 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
   .add-row-style { display: none !important; }
 }
 
+/* ─── Panel grande (formulario nueva área encima de todo) ─── */
+/* Nota: En tu TSX NO hay modal-overlay para este panel,
+   entonces lo convertimos visualmente en “modal” con overlay + z-index solo con CSS. */
+
+/* Fondo/overlay (se activa cuando el panel existe) */
+/* (Ya no se usa este “panel fixed” para crear área porque ahora es modal real en TSX) */
+.premium-card-form.create-mode-area { }
+.premium-card-form.create-mode-area::before { content: none; }
+
+/* Modal de creación de área (más grande y centrado) */
+.modal-area-create {
+  width: min(720px, calc(100vw - 32px));
+  max-width: 720px;
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Modal “Añadir equipo” */
+.modal-equipo-create {
+  width: min(760px, calc(100vw - 32px));
+  max-width: 760px;
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+}
+
+.equipo-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equipo-modal-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.modal-equipo-create .modal-detail {
+  margin-bottom: 1.25rem;
+}
+
+.modal-area-create .modal-icon { font-size: 30px; }
+.modal-area-create h3 { font-size: 16px; }
+
+.modal-area-create .modal-detail { margin-bottom: 1.25rem; }
+
+.modal-area-create .premium-grid-areas { gap: 10px; }
+
+@media (max-width: 768px) {
+  .modal-area-create {
+    padding: 1.5rem;
+    width: calc(100vw - 16px);
+  }
+}
+
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .inline-add-grid,
@@ -622,4 +716,38 @@ body { background: var(--bg); color: var(--text-primary); font-size: 14px; line-
   .premium-grid-areas { flex-direction: column; }
   .premium-grid-areas input,
   .premium-grid-areas button { width: 100%; }
+
+  .premium-card-form.create-mode-area {
+    padding: 1.5rem !important;
+    min-height: 220px;
+    max-width: 720px;
+    width: calc(100% - 16px);
+  }
 }
+
+/* ─── CUSTOM ALERT STYLES (sin alert() feo) ───────────────── */
+.modal-overlay[role="alert"] {
+  z-index: 20000;
+  position: fixed;
+  inset: 0;
+}
+
+.modal-overlay[role="alert"] .modal-premium {
+  background: var(--surface);
+}
+
+
+.modal-overlay[role="alert"] .modal-icon {
+  color: var(--warning-text);
+}
+
+.modal-overlay[role="alert"] .modal-detail {
+  font-weight: 700;
+  color: var(--warning-text);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin: 0 0 1.25rem;
+}
+

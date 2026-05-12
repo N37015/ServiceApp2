@@ -92,12 +92,27 @@ export async function eliminarEquipo(id: number) {
 
 // ── CREAR ÁREA ────────────────────────────────────────────────
 export async function crearArea(fd: FormData) {
+  const nombre = String(fd.get('nombre_area') || '').trim();
+  const coordinador = String(fd.get('coordinador') || '').trim();
+
+  // Validación: no permitir áreas repetidas por nombre (case-insensitive)
+  const nombreLower = nombre.toLowerCase();
+  const existe = db.prepare('SELECT id FROM areas WHERE LOWER(nombre) = ?').get(nombreLower);
+
+  if (existe) {
+    // No se inserta, solo se revalida para que se refresque la UI.
+    revalidatePath('/');
+    return { ok: false, reason: 'duplicate', nombre };
+  }
+
   db.prepare('INSERT INTO areas (nombre, coordinador) VALUES (?, ?)').run(
-    fd.get('nombre_area'),
-    fd.get('coordinador')
+    nombre,
+    coordinador
   );
   revalidatePath('/');
+  return { ok: true };
 }
+
 
 // ── ACTUALIZAR ÁREA ───────────────────────────────────────────
 export async function actualizarArea(fd: FormData) {

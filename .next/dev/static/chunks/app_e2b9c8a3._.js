@@ -110,6 +110,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/xlsx/xlsx.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$b6ac02__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__ = __turbopack_context__.i("[project]/app/data:b6ac02 [app-client] (ecmascript) <text/javascript>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$a0ee42__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__ = __turbopack_context__.i("[project]/app/data:a0ee42 [app-client] (ecmascript) <text/javascript>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$642dbd__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__ = __turbopack_context__.i("[project]/app/data:642dbd [app-client] (ecmascript) <text/javascript>");
@@ -121,12 +122,14 @@ var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
+;
 function InventarioClient({ areas, equiposIniciales }) {
     _s();
     const [busqueda, setBusqueda] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [idEditandoEquipo, setIdEditandoEquipo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [idEditandoArea, setIdEditandoArea] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [datosEditArea, setDatosEditArea] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({});
+    const [mostrandoEquipoEditarModal, setMostrandoEquipoEditarModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [equipoModalEditItem, setEquipoModalEditItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [mostrandoAreaModal, setMostrandoAreaModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [mostrandoFormulario, setMostrandoFormulario] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [valoresNuevo, setValoresNuevo] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         id: '',
@@ -145,6 +148,10 @@ function InventarioClient({ areas, equiposIniciales }) {
     const [areaAbierta, setAreaAbierta] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [verTodas, setVerTodas] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [modalBorrar, setModalBorrar] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [modalItem, setModalItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    // Modal “Añadir equipo” (especificaciones en vertical)
+    const [mostrandoEquipoModal, setMostrandoEquipoModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [equipoModalAreaId, setEquipoModalAreaId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const toggleArea = (id)=>{
         setVerTodas(false);
         setAreaAbierta(areaAbierta === id ? null : id);
@@ -177,70 +184,393 @@ function InventarioClient({ areas, equiposIniciales }) {
         setMostrandoFormulario(false);
     };
     const ejecutarBorrado = async ()=>{
-        if (!modalBorrar) return;
+        if (!modalBorrar || !modalItem) return;
         modalBorrar.tipo === 'area' ? await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$a0ee42__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["eliminarArea"])(modalBorrar.id) : await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$b6ac02__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["eliminarEquipo"])(modalBorrar.id);
         setModalBorrar(null);
+        setModalItem(null);
     };
     const areasFiltradas = (areas || []).filter((a)=>a.nombre.toLowerCase().includes(busqueda.toLowerCase()));
+    const handleExportExcel = ()=>{
+        console.log('EXPORT clicked', {
+            verTodas,
+            areaAbierta,
+            equiposCount: equiposIniciales?.length || 0,
+            areasCount: areas?.length || 0
+        });
+        let data = [];
+        let filename = 'inventario_completo.xlsx';
+        let sheetName = 'Inventario Completo';
+        if (!verTodas && areaAbierta !== null) {
+            // Single area
+            const selectedArea = areas.find((a)=>a.id === areaAbierta);
+            const filteredEquipos = equiposIniciales.filter((e)=>e.area_id === areaAbierta);
+            const areaName = selectedArea ? selectedArea.nombre : 'Área Desconocida';
+            const coordinador = selectedArea ? selectedArea.coordinador || '' : '';
+            sheetName = areaName.slice(0, 31);
+            filename = `inventario_${areaName.replace(/[^a-zA-Z0-9]/g, '_')}.xlsx`;
+            data = filteredEquipos.map((e)=>({
+                    'ÁREA': areaName,
+                    'COORDINADOR ÁREA': coordinador,
+                    'NI': e.numeroinventario || '',
+                    'RESPONSABLE/MQ': e.nombre_responsable_inventario || '',
+                    'MARCA / MODELO': e.marca_modelo || '',
+                    'DISCO': e.almacenamiento || '',
+                    'RAM': e.memoria_ram || '',
+                    'PROCESADOR': e.procesador || '',
+                    'MONITOR': e.monitor || '',
+                    'MOUSE / TECLADO': e.mouse_teclado || '',
+                    'OBSERVACIONES': e.es_mal_estado === 1 ? `🔴 ${e.observaciones || ''}` : e.observaciones || ''
+                }));
+        } else {
+            // All areas - group by area for separation
+            const areasMap = {};
+            equiposIniciales.forEach((e)=>{
+                const area = areas.find((a)=>a.id === e.area_id);
+                const areaName = area ? area.nombre : 'Área Desconocida';
+                const coordinador = area ? area.coordinador || '' : '';
+                if (!areasMap[areaName]) areasMap[areaName] = [];
+                areasMap[areaName].push({
+                    'ÁREA': areaName,
+                    'COORDINADOR ÁREA': coordinador,
+                    'NI': e.numeroinventario || '',
+                    'RESPONSABLE/MQ': e.nombre_responsable_inventario || '',
+                    'MARCA / MODELO': e.marca_modelo || '',
+                    'DISCO': e.almacenamiento || '',
+                    'RAM': e.memoria_ram || '',
+                    'PROCESADOR': e.procesador || '',
+                    'MONITOR': e.monitor || '',
+                    'MOUSE / TECLADO': e.mouse_teclado || '',
+                    'OBSERVACIONES': e.es_mal_estado === 1 ? `🔴 ${e.observaciones || ''}` : e.observaciones || ''
+                });
+            });
+            // Flatten with blank separator rows between areas
+            Object.values(areasMap).forEach((areaEquipos, index)=>{
+                data.push(...areaEquipos);
+                if (index < Object.keys(areasMap).length - 1) {
+                    // Add 2 blank rows between areas for separation
+                    data.push({}, {});
+                }
+            });
+        }
+        // Headers
+        const headers = [
+            'ÁREA',
+            'COORDINADOR ÁREA',
+            'NI',
+            'RESPONSABLE/MQ',
+            'MARCA / MODELO',
+            'DISCO',
+            'RAM',
+            'PROCESADOR',
+            'MONITOR',
+            'MOUSE / TECLADO',
+            'OBSERVACIONES'
+        ];
+        // Convert objects to array of arrays (aoa_to_sheet requires arrays)
+        const aoaData = [
+            headers
+        ];
+        data.forEach((row)=>{
+            aoaData.push([
+                row['ÁREA'] || '',
+                row['COORDINADOR ÁREA'] || '',
+                row['NI'] || '',
+                row['RESPONSABLE/MQ'] || '',
+                row['MARCA / MODELO'] || '',
+                row['DISCO'] || '',
+                row['RAM'] || '',
+                row['PROCESADOR'] || '',
+                row['MONITOR'] || '',
+                row['MOUSE / TECLADO'] || '',
+                row['OBSERVACIONES'] || ''
+            ]);
+        });
+        const wb = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].book_new();
+        const ws = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].aoa_to_sheet(aoaData);
+        // Column widths
+        ws['!cols'] = [
+            {
+                wch: 20
+            },
+            {
+                wch: 20
+            },
+            {
+                wch: 12
+            },
+            {
+                wch: 20
+            },
+            {
+                wch: 20
+            },
+            {
+                wch: 12
+            },
+            {
+                wch: 10
+            },
+            {
+                wch: 18
+            },
+            {
+                wch: 15
+            },
+            {
+                wch: 18
+            },
+            {
+                wch: 30
+            }
+        ];
+        // Header styling
+        const range = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].decode_range(ws['!ref']);
+        for(let C = 0; C <= range.e.c; ++C){
+            const cell_address = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].encode_cell({
+                r: 0,
+                c: C
+            });
+            if (ws[cell_address]) {
+                ws[cell_address].s = {
+                    font: {
+                        bold: true,
+                        color: {
+                            rgb: "FFFFFFFF"
+                        }
+                    },
+                    fill: {
+                        fgColor: {
+                            rgb: "FF2E75B6"
+                        }
+                    },
+                    alignment: {
+                        horizontal: "center"
+                    }
+                };
+            }
+        }
+        // Mal estado orange
+        for(let R = 1; R <= range.e.r; ++R){
+            for(let C = 0; C <= range.e.c; ++C){
+                const cell_address = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].encode_cell({
+                    r: R,
+                    c: C
+                });
+                if (ws[cell_address] && ws[cell_address].v && ws[cell_address].v.toString().includes('🔴')) {
+                    ws[cell_address].s = {
+                        fill: {
+                            fgColor: {
+                                rgb: "FFFCE4D6"
+                            }
+                        },
+                        font: {
+                            color: {
+                                rgb: "FF833C00"
+                            }
+                        }
+                    };
+                }
+            }
+        }
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["utils"].book_append_sheet(wb, ws, sheetName);
+        console.log('Generating Excel', {
+            filename,
+            rows: data.length
+        });
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$xlsx$2f$xlsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["writeFile"](wb, filename);
+        console.log('Download triggered');
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "app-container",
         children: [
-            modalBorrar && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "modal-overlay no-print",
+            mostrandoAreaModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "modal-overlay no-print modal-confirmation",
+                role: "dialog",
+                "aria-modal": "true",
+                onClick: ()=>setMostrandoAreaModal(null),
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "modal-premium",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-icon",
-                            children: "⚠️"
-                        }, void 0, false, {
-                            fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 57,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            children: "¿Confirmar eliminación?"
-                        }, void 0, false, {
-                            fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 58,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "modal-btns-group",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ejecutarBorrado,
-                                    className: "btn-danger-confirm",
-                                    children: "ELIMINAR"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 60,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ()=>setModalBorrar(null),
-                                    className: "btn-cancel-modal",
-                                    children: "CANCELAR"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 61,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 59,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
+                    onClick: (e)=>e.stopPropagation(),
+                    children: mostrandoAreaModal.tipo === 'eliminar' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "modal-icon",
+                                children: "⚠️"
+                            }, void 0, false, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 221,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                children: `¿Eliminar área "${mostrandoAreaModal.area.nombre}"?`
+                            }, void 0, false, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 222,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "modal-detail",
+                                children: `${equiposIniciales.filter((eq)=>eq.area_id === mostrandoAreaModal.area.id).length} equipos asociados`
+                            }, void 0, false, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 223,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "modal-btns-group",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: async ()=>{
+                                            await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$a0ee42__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["eliminarArea"])(mostrandoAreaModal.area.id);
+                                            setMostrandoAreaModal(null);
+                                        },
+                                        className: "btn-danger-confirm",
+                                        children: "ELIMINAR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 227,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setMostrandoAreaModal(null),
+                                        className: "btn-cancel-modal",
+                                        children: "CANCELAR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 236,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 226,
+                                columnNumber: 17
+                            }, this)
+                        ]
+                    }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "modal-icon",
+                                children: "✎"
+                            }, void 0, false, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 246,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                children: "EDITAR ÁREA"
+                            }, void 0, false, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 247,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "modal-detail",
+                                children: [
+                                    "Actualiza los datos y presiona ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                        children: "GUARDAR CAMBIOS"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 248,
+                                        columnNumber: 76
+                                    }, this),
+                                    "."
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 248,
+                                columnNumber: 17
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                                action: async (fd)=>{
+                                    await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$1f7da0__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["actualizarArea"])(fd);
+                                    setMostrandoAreaModal(null);
+                                },
+                                className: "premium-grid-areas",
+                                autoComplete: "off",
+                                onClick: (e)=>e.stopPropagation(),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "hidden",
+                                        name: "id",
+                                        value: mostrandoAreaModal.area.id
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 259,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        name: "nombre_area",
+                                        defaultValue: mostrandoAreaModal.area.nombre,
+                                        required: true,
+                                        className: "inp-table-add",
+                                        autoComplete: "off"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 260,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        name: "coordinador",
+                                        defaultValue: mostrandoAreaModal.area.coordinador,
+                                        className: "inp-table-add",
+                                        autoComplete: "off"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 267,
+                                        columnNumber: 19
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            gap: 10,
+                                            justifyContent: 'center',
+                                            width: '100%',
+                                            marginTop: 10
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "button",
+                                                className: "btn-cancel-modal",
+                                                onClick: ()=>setMostrandoAreaModal(null),
+                                                children: "CANCELAR"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                lineNumber: 274,
+                                                columnNumber: 21
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "submit",
+                                                className: "btn-premium-blue",
+                                                children: "GUARDAR CAMBIOS"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                lineNumber: 277,
+                                                columnNumber: 21
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/InventarioClient.tsx",
+                                        lineNumber: 273,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/InventarioClient.tsx",
+                                lineNumber: 250,
+                                columnNumber: 17
+                            }, this)
+                        ]
+                    }, void 0, true)
+                }, void 0, false, {
                     fileName: "[project]/app/InventarioClient.tsx",
-                    lineNumber: 56,
+                    lineNumber: 218,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/InventarioClient.tsx",
-                lineNumber: 55,
+                lineNumber: 212,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -252,7 +582,7 @@ function InventarioClient({ areas, equiposIniciales }) {
                             children: "REPORT"
                         }, void 0, false, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 70,
+                            lineNumber: 292,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -277,7 +607,20 @@ function InventarioClient({ areas, equiposIniciales }) {
                                     children: "🖨 IMPRIMIR"
                                 }, void 0, false, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 72,
+                                    lineNumber: 294,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: handleExportExcel,
+                                    className: "btn-action",
+                                    style: {
+                                        fontSize: '12px',
+                                        padding: '7px 14px'
+                                    },
+                                    children: "📊 EXPORTAR EXCEL"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 303,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -286,43 +629,66 @@ function InventarioClient({ areas, equiposIniciales }) {
                                     children: mostrandoFormulario ? "✕ CERRAR FORMULARIO" : "+ NUEVO REGISTRO / ÁREA"
                                 }, void 0, false, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 310,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 71,
+                            lineNumber: 293,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/InventarioClient.tsx",
-                    lineNumber: 69,
+                    lineNumber: 291,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/InventarioClient.tsx",
-                lineNumber: 68,
+                lineNumber: 289,
                 columnNumber: 7
             }, this),
-            mostrandoFormulario && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                className: "dashboard-content no-print",
-                style: {
-                    marginBottom: '2rem'
-                },
+            mostrandoFormulario && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "modal-overlay no-print",
+                role: "dialog",
+                "aria-modal": "true",
+                onClick: ()=>setMostrandoFormulario(false),
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "premium-card-form create-mode-area",
-                    style: {
-                        padding: '1.5rem'
-                    },
+                    className: "modal-premium modal-area-create",
+                    onClick: (e)=>e.stopPropagation(),
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "premium-title",
-                            children: "GESTIÓN RÁPIDA"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-icon",
+                            children: "➕"
                         }, void 0, false, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 92,
+                            lineNumber: 329,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            children: "REGISTRO DE NUEVA ÁREA"
+                        }, void 0, false, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 330,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "modal-detail",
+                            children: [
+                                "Completa los datos y presiona ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                    children: "REGISTRAR ÁREA"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 331,
+                                    columnNumber: 71
+                                }, this),
+                                "."
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 331,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -341,7 +707,7 @@ function InventarioClient({ areas, equiposIniciales }) {
                                     autoComplete: "off"
                                 }, void 0, false, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 94,
+                                    lineNumber: 341,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -351,33 +717,538 @@ function InventarioClient({ areas, equiposIniciales }) {
                                     autoComplete: "off"
                                 }, void 0, false, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 95,
+                                    lineNumber: 348,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    type: "submit",
-                                    className: "btn-premium-blue",
-                                    children: "REGISTRAR ÁREA"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        display: 'flex',
+                                        gap: 10,
+                                        justifyContent: 'center',
+                                        width: '100%'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            className: "btn-cancel-modal",
+                                            onClick: ()=>setMostrandoFormulario(false),
+                                            children: "CANCELAR"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 355,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "submit",
+                                            className: "btn-premium-blue",
+                                            children: "REGISTRAR ÁREA"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 358,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 96,
+                                    lineNumber: 354,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 93,
+                            lineNumber: 333,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/InventarioClient.tsx",
-                    lineNumber: 91,
+                    lineNumber: 325,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/InventarioClient.tsx",
-                lineNumber: 90,
+                lineNumber: 319,
+                columnNumber: 9
+            }, this),
+            mostrandoEquipoModal && equipoModalAreaId !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "modal-overlay no-print",
+                role: "dialog",
+                "aria-modal": "true",
+                onClick: ()=>setMostrandoEquipoModal(false),
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "modal-premium modal-equipo-create",
+                    onClick: (e)=>e.stopPropagation(),
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-icon",
+                            children: "💾"
+                        }, void 0, false, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 378,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            children: "AGREGAR EQUIPO"
+                        }, void 0, false, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 379,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "modal-detail",
+                            children: [
+                                "Completa las especificaciones y presiona ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                    children: "AÑADIR"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 380,
+                                    columnNumber: 82
+                                }, this),
+                                "."
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 380,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                            action: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$9b1556__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["crearRegistro"],
+                            className: "equipo-modal-form",
+                            autoComplete: "off",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    type: "hidden",
+                                    name: "area_id",
+                                    value: equipoModalAreaId
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 383,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "numeroinventario",
+                                    placeholder: "NI",
+                                    required: true,
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 385,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "nombre_res",
+                                    placeholder: "Responsable",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 386,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "marca",
+                                    placeholder: "Marca",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 387,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "almacenamiento",
+                                    placeholder: "Disco",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 388,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "ram",
+                                    placeholder: "RAM",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 389,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "procesador",
+                                    placeholder: "PROCESADOR",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 390,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "monitor",
+                                    placeholder: "Monitor",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 391,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "mouse_teclado",
+                                    placeholder: "Mouse / Teclado",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 392,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "observaciones",
+                                    placeholder: "Observaciones...",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 393,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "mal-estado-check",
+                                    style: {
+                                        justifyContent: 'space-between',
+                                        marginTop: 2
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: "⚠️ Dañado"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 396,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "checkbox",
+                                            name: "toggle_mal_estado"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 397,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 395,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        display: 'flex',
+                                        gap: 10,
+                                        justifyContent: 'center',
+                                        width: '100%',
+                                        marginTop: 10
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            className: "btn-cancel-modal",
+                                            onClick: ()=>setMostrandoEquipoModal(false),
+                                            children: "CANCELAR"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 401,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "submit",
+                                            className: "btn-premium-blue",
+                                            children: "AÑADIR"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 404,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 400,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 382,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/InventarioClient.tsx",
+                    lineNumber: 373,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/InventarioClient.tsx",
+                lineNumber: 367,
+                columnNumber: 9
+            }, this),
+            mostrandoEquipoEditarModal && equipoModalEditItem && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "modal-overlay no-print",
+                role: "dialog",
+                "aria-modal": "true",
+                onClick: ()=>{
+                    setMostrandoEquipoEditarModal(false);
+                    setEquipoModalEditItem(null);
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "modal-premium modal-equipo-create",
+                    onClick: (e)=>e.stopPropagation(),
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "modal-icon",
+                            children: "✎"
+                        }, void 0, false, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 425,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                            children: "EDITAR EQUIPO"
+                        }, void 0, false, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 426,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "modal-detail",
+                            children: [
+                                "Actualiza los campos y presiona ",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                    children: "GUARDAR CAMBIOS"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 428,
+                                    columnNumber: 47
+                                }, this),
+                                "."
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 427,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                            action: async (fd)=>{
+                                fd.append('id', String(equipoModalEditItem.id));
+                                // area_id en actualizarRegistro no se usa; se mantiene por compatibilidad
+                                fd.append('area_id', String(equipoModalEditItem.area_id ?? ''));
+                                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$642dbd__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["actualizarRegistro"])(fd);
+                                setMostrandoEquipoEditarModal(false);
+                                setEquipoModalEditItem(null);
+                            },
+                            className: "equipo-modal-form",
+                            autoComplete: "off",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "numeroinventario",
+                                    defaultValue: equipoModalEditItem.numeroinventario,
+                                    placeholder: "NI",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 443,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "nombre_res",
+                                    defaultValue: equipoModalEditItem.nombre_responsable_inventario,
+                                    placeholder: "Responsable",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 444,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "marca",
+                                    defaultValue: equipoModalEditItem.marca_modelo,
+                                    placeholder: "Marca",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 445,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "almacenamiento",
+                                    defaultValue: equipoModalEditItem.almacenamiento,
+                                    placeholder: "Disco",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 446,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "ram",
+                                    defaultValue: equipoModalEditItem.memoria_ram,
+                                    placeholder: "RAM",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 447,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "procesador",
+                                    defaultValue: equipoModalEditItem.procesador,
+                                    placeholder: "PROCESADOR",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 448,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "monitor",
+                                    defaultValue: equipoModalEditItem.monitor,
+                                    placeholder: "Monitor",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 449,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "mouse_teclado",
+                                    defaultValue: equipoModalEditItem.mouse_teclado,
+                                    placeholder: "Mouse / Teclado",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 450,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                    name: "observaciones",
+                                    defaultValue: equipoModalEditItem.observaciones,
+                                    placeholder: "Observaciones...",
+                                    className: "inp-table-add",
+                                    autoComplete: "off"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 451,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "mal-estado-check",
+                                    style: {
+                                        justifyContent: 'space-between',
+                                        marginTop: 2
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: "⚠️ Dañado"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 454,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "checkbox",
+                                            name: "toggle_mal_estado",
+                                            defaultChecked: equipoModalEditItem.es_mal_estado === 1
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 455,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 453,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        display: 'flex',
+                                        gap: 10,
+                                        justifyContent: 'center',
+                                        width: '100%',
+                                        marginTop: 10
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            className: "btn-danger-confirm",
+                                            onClick: ()=>{
+                                                setModalBorrar({
+                                                    id: equipoModalEditItem.id,
+                                                    tipo: 'equipo'
+                                                });
+                                                setModalItem(equipoModalEditItem);
+                                            },
+                                            children: "ELIMINAR"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 463,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "button",
+                                            className: "btn-cancel-modal",
+                                            onClick: ()=>{
+                                                setMostrandoEquipoEditarModal(false);
+                                                setEquipoModalEditItem(null);
+                                            },
+                                            children: "CANCELAR"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 474,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            type: "submit",
+                                            className: "btn-premium-blue",
+                                            children: "GUARDAR CAMBIOS"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/InventarioClient.tsx",
+                                            lineNumber: 478,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/InventarioClient.tsx",
+                                    lineNumber: 462,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/app/InventarioClient.tsx",
+                            lineNumber: 431,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/InventarioClient.tsx",
+                    lineNumber: 421,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/InventarioClient.tsx",
+                lineNumber: 415,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -394,14 +1265,14 @@ function InventarioClient({ areas, equiposIniciales }) {
                             children: verTodas ? 'CERRAR TODAS' : 'VER TODAS'
                         }, void 0, false, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 105,
+                            lineNumber: 490,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "nav-divider"
                         }, void 0, false, {
                             fileName: "[project]/app/InventarioClient.tsx",
-                            lineNumber: 108,
+                            lineNumber: 493,
                             columnNumber: 11
                         }, this),
                         areasFiltradas.map((a)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -412,102 +1283,42 @@ function InventarioClient({ areas, equiposIniciales }) {
                                     children: a.nombre
                                 }, void 0, false, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 111,
+                                    lineNumber: 496,
                                     columnNumber: 15
                                 }, this)
                             }, a.id, false, {
                                 fileName: "[project]/app/InventarioClient.tsx",
-                                lineNumber: 110,
+                                lineNumber: 495,
                                 columnNumber: 13
                             }, this))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/InventarioClient.tsx",
-                    lineNumber: 104,
+                    lineNumber: 489,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/InventarioClient.tsx",
-                lineNumber: 103,
+                lineNumber: 488,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "dashboard-content",
                 children: (verTodas || areaAbierta === null ? areasFiltradas : areasFiltradas.filter((a)=>a.id === areaAbierta)).map((area)=>{
                     const equiposArea = equiposIniciales.filter((e)=>e.area_id === area.id);
-                    const esEditandoArea = idEditandoArea === area.id;
+                    const esEditandoArea = false;
                     const estaAbierta = verTodas || areaAbierta === area.id;
                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
                         id: `area-${area.id}`,
                         className: "premium-card",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                                className: `area-card-header ${esEditandoArea ? 'editing' : ''}`,
+                                className: `area-card-header ${("TURBOPACK compile-time falsy", 0) ? "TURBOPACK unreachable" : ''}`,
                                 onClick: ()=>!esEditandoArea && toggleArea(area.id),
                                 style: {
                                     cursor: 'pointer'
                                 },
-                                children: esEditandoArea ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                                    action: async (fd)=>{
-                                        await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$1f7da0__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["actualizarArea"])(fd);
-                                        setIdEditandoArea(null);
-                                    },
-                                    className: "header-edit-form",
-                                    onClick: (e)=>e.stopPropagation(),
-                                    autoComplete: "off",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            type: "hidden",
-                                            name: "id",
-                                            value: datosEditArea.id
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 132,
-                                            columnNumber: 21
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            name: "nombre_area",
-                                            value: datosEditArea.nombre_area,
-                                            onChange: (e)=>setDatosEditArea({
-                                                    ...datosEditArea,
-                                                    nombre_area: e.target.value
-                                                }),
-                                            className: "input-inline-dark",
-                                            autoComplete: "off"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 133,
-                                            columnNumber: 21
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            name: "coordinador",
-                                            value: datosEditArea.coordinador,
-                                            onChange: (e)=>setDatosEditArea({
-                                                    ...datosEditArea,
-                                                    coordinador: e.target.value
-                                                }),
-                                            className: "input-inline-dark",
-                                            autoComplete: "off"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 134,
-                                            columnNumber: 21
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                            type: "submit",
-                                            className: "btn-save-circle",
-                                            children: "✓"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 135,
-                                            columnNumber: 21
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 131,
-                                    columnNumber: 19
-                                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: ("TURBOPACK compile-time falsy", 0) ? /*#__PURE__*/ "TURBOPACK unreachable" : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "header-display",
                                     style: {
                                         width: '100%'
@@ -524,13 +1335,13 @@ function InventarioClient({ areas, equiposIniciales }) {
                                                             children: estaAbierta ? '▲' : '▼'
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/InventarioClient.tsx",
-                                                            lineNumber: 140,
+                                                            lineNumber: 525,
                                                             columnNumber: 41
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/InventarioClient.tsx",
-                                                    lineNumber: 140,
+                                                    lineNumber: 525,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -541,13 +1352,13 @@ function InventarioClient({ areas, equiposIniciales }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/InventarioClient.tsx",
-                                                    lineNumber: 141,
+                                                    lineNumber: 526,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 139,
+                                            lineNumber: 524,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -555,25 +1366,21 @@ function InventarioClient({ areas, equiposIniciales }) {
                                             onClick: (e)=>e.stopPropagation(),
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>{
-                                                        setIdEditandoArea(area.id);
-                                                        setDatosEditArea({
-                                                            id: area.id,
-                                                            nombre_area: area.nombre,
-                                                            coordinador: area.coordinador
-                                                        });
-                                                    },
+                                                    onClick: ()=>setMostrandoAreaModal({
+                                                            tipo: 'editar',
+                                                            area
+                                                        }),
                                                     className: "btn-action edit",
                                                     children: "EDITAR"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/InventarioClient.tsx",
-                                                    lineNumber: 144,
+                                                    lineNumber: 529,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>setModalBorrar({
-                                                            id: area.id,
-                                                            tipo: 'area'
+                                                    onClick: ()=>setMostrandoAreaModal({
+                                                            tipo: 'eliminar',
+                                                            area
                                                         }),
                                                     className: "btn-action delete",
                                                     style: {
@@ -582,24 +1389,24 @@ function InventarioClient({ areas, equiposIniciales }) {
                                                     children: "ELIMINAR"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/InventarioClient.tsx",
-                                                    lineNumber: 145,
+                                                    lineNumber: 535,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 528,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 138,
+                                    lineNumber: 523,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/InventarioClient.tsx",
-                                lineNumber: 129,
+                                lineNumber: 514,
                                 columnNumber: 15
                             }, this),
                             estaAbierta && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -614,63 +1421,63 @@ function InventarioClient({ areas, equiposIniciales }) {
                                                         children: "NI"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 552,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "RESPONSABLE"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 157,
+                                                        lineNumber: 553,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "MARCA / MODELO"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 158,
+                                                        lineNumber: 554,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "DISCO"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 555,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "RAM"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 556,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "PROCESADOR"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 161,
+                                                        lineNumber: 557,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "MONITOR"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 558,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "MOUSE / TECLADO"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 163,
+                                                        lineNumber: 559,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
                                                         children: "OBSERVACIONES"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 560,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -678,499 +1485,224 @@ function InventarioClient({ areas, equiposIniciales }) {
                                                         children: "ACCIÓN"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 165,
+                                                        lineNumber: 561,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/InventarioClient.tsx",
-                                                lineNumber: 155,
+                                                lineNumber: 551,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 154,
+                                            lineNumber: 550,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
                                             children: [
                                                 equiposArea.map((e)=>{
-                                                    const esEditEq = idEditandoEquipo === e.id;
                                                     const esMalEstado = e.es_mal_estado === 1;
                                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                         className: esMalEstado ? "row-error-status" : "",
-                                                        children: esEditEq ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                            colSpan: 10,
-                                                            style: {
-                                                                padding: 0
-                                                            },
-                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                                                                action: async (fd)=>{
-                                                                    let obs = fd.get('observaciones');
-                                                                    const check = fd.get('toggle_mal_estado');
-                                                                    if (check === 'on' && !obs.toLowerCase().includes('mal estado')) {
-                                                                        obs = obs ? `${obs} - MAL ESTADO` : 'MAL ESTADO';
-                                                                    } else if (!check) {
-                                                                        obs = obs.replace(/ - MAL ESTADO/gi, "").replace(/MAL ESTADO/gi, "").trim();
-                                                                    }
-                                                                    fd.set('observaciones', obs);
-                                                                    fd.append('id', e.id.toString());
-                                                                    fd.append('area_id', area.id.toString());
-                                                                    await (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$642dbd__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["actualizarRegistro"])(fd);
-                                                                    setIdEditandoEquipo(null);
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                className: "ni-cell",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    children: e.numeroinventario
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/InventarioClient.tsx",
+                                                                    lineNumber: 570,
+                                                                    columnNumber: 53
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 570,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.nombre_responsable_inventario
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 571,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.marca_modelo
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 572,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.almacenamiento
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 573,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.memoria_ram
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 574,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.procesador
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 575,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.monitor
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 576,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                children: e.mouse_teclado
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 577,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                style: {
+                                                                    fontSize: '0.7rem'
                                                                 },
-                                                                className: "inline-edit-grid",
-                                                                autoComplete: "off",
+                                                                children: esMalEstado ? `🔴 ${e.observaciones}` : e.observaciones
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 578,
+                                                                columnNumber: 29
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                                className: "no-print",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "numeroinventario",
-                                                                        defaultValue: e.numeroinventario,
-                                                                        placeholder: "NI",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 191,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "nombre_res",
-                                                                        defaultValue: e.nombre_responsable_inventario,
-                                                                        placeholder: "Responsable",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 192,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "marca",
-                                                                        defaultValue: e.marca_modelo,
-                                                                        placeholder: "Marca",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 193,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "almacenamiento",
-                                                                        defaultValue: e.almacenamiento,
-                                                                        placeholder: "Disco",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 194,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "ram",
-                                                                        defaultValue: e.memoria_ram,
-                                                                        placeholder: "RAM",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 195,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "procesador",
-                                                                        defaultValue: e.procesador,
-                                                                        placeholder: "PROCESADOR",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 196,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "monitor",
-                                                                        defaultValue: e.monitor,
-                                                                        placeholder: "Monitor",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 197,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "mouse_teclado",
-                                                                        defaultValue: e.mouse_teclado,
-                                                                        placeholder: "Mouse / Teclado",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 198,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                        name: "observaciones",
-                                                                        defaultValue: e.observaciones,
-                                                                        placeholder: "Observaciones",
-                                                                        className: "inp-table-add",
-                                                                        autoComplete: "off"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 199,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                                                        className: "mal-estado-check",
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                                type: "checkbox",
-                                                                                name: "toggle_mal_estado",
-                                                                                defaultChecked: esMalEstado
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/InventarioClient.tsx",
-                                                                                lineNumber: 202,
-                                                                                columnNumber: 37
-                                                                            }, this),
-                                                                            " ⚠️ Dañado"
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 201,
-                                                                        columnNumber: 35
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        style: {
-                                                                            display: 'flex',
-                                                                            gap: '4px'
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        onClick: ()=>{
+                                                                            setEquipoModalEditItem(e);
+                                                                            setMostrandoEquipoEditarModal(true);
                                                                         },
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                type: "submit",
-                                                                                className: "btn-confirm-add",
-                                                                                children: "OK"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/InventarioClient.tsx",
-                                                                                lineNumber: 206,
-                                                                                columnNumber: 37
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                                type: "button",
-                                                                                onClick: ()=>setIdEditandoEquipo(null),
-                                                                                className: "btn-action",
-                                                                                children: "X"
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/app/InventarioClient.tsx",
-                                                                                lineNumber: 207,
-                                                                                columnNumber: 37
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
+                                                                        className: "btn-mini",
+                                                                        children: "✎"
+                                                                    }, void 0, false, {
                                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 205,
-                                                                        columnNumber: 35
+                                                                        lineNumber: 580,
+                                                                        columnNumber: 31
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                        onClick: ()=>{
+                                                                            setModalBorrar({
+                                                                                id: e.id,
+                                                                                tipo: 'equipo'
+                                                                            });
+                                                                            setModalItem(e);
+                                                                        },
+                                                                        className: "btn-mini delete",
+                                                                        style: {
+                                                                            marginLeft: '4px'
+                                                                        },
+                                                                        children: "🗑"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/InventarioClient.tsx",
+                                                                        lineNumber: 589,
+                                                                        columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/InventarioClient.tsx",
-                                                                lineNumber: 177,
-                                                                columnNumber: 33
+                                                                lineNumber: 579,
+                                                                columnNumber: 29
                                                             }, this)
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/app/InventarioClient.tsx",
-                                                            lineNumber: 176,
-                                                            columnNumber: 31
-                                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    className: "ni-cell",
-                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        children: e.numeroinventario
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/InventarioClient.tsx",
-                                                                        lineNumber: 213,
-                                                                        columnNumber: 57
-                                                                    }, this)
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 213,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.nombre_responsable_inventario
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 214,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.marca_modelo
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 215,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.almacenamiento
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 216,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.memoria_ram
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 217,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.procesador
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 218,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.monitor
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 219,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    children: e.mouse_teclado
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 220,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    style: {
-                                                                        fontSize: '0.7rem'
-                                                                    },
-                                                                    children: esMalEstado ? `🔴 ${e.observaciones}` : e.observaciones
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 221,
-                                                                    columnNumber: 33
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                                    className: "no-print",
-                                                                    children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                            onClick: ()=>setIdEditandoEquipo(e.id),
-                                                                            className: "btn-mini",
-                                                                            children: "✎"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/InventarioClient.tsx",
-                                                                            lineNumber: 223,
-                                                                            columnNumber: 35
-                                                                        }, this),
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                            onClick: ()=>setModalBorrar({
-                                                                                    id: e.id,
-                                                                                    tipo: 'equipo'
-                                                                                }),
-                                                                            className: "btn-mini delete",
-                                                                            style: {
-                                                                                marginLeft: '4px'
-                                                                            },
-                                                                            children: "🗑"
-                                                                        }, void 0, false, {
-                                                                            fileName: "[project]/app/InventarioClient.tsx",
-                                                                            lineNumber: 224,
-                                                                            columnNumber: 35
-                                                                        }, this)
-                                                                    ]
-                                                                }, void 0, true, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 222,
-                                                                    columnNumber: 33
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true)
-                                                    }, e.id, false, {
+                                                        ]
+                                                    }, e.id, true, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 174,
+                                                        lineNumber: 569,
                                                         columnNumber: 27
                                                     }, this);
                                                 }),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                                    className: "no-print add-row-style",
+                                                    className: "no-print",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
                                                         colSpan: 10,
                                                         style: {
                                                             padding: 0
                                                         },
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                                                            action: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$3a$9b1556__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$text$2f$javascript$3e$__["crearRegistro"],
-                                                            className: "inline-add-grid",
-                                                            autoComplete: "off",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    type: "hidden",
-                                                                    name: "area_id",
-                                                                    value: area.id
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 236,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "numeroinventario",
-                                                                    placeholder: "NI",
-                                                                    required: true,
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 237,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "nombre_res",
-                                                                    placeholder: "Responsable",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 238,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "marca",
-                                                                    placeholder: "Marca",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 239,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "almacenamiento",
-                                                                    placeholder: "Disco",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 240,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "ram",
-                                                                    placeholder: "RAM",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 241,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "procesador",
-                                                                    placeholder: "PROCESADOR",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 242,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "monitor",
-                                                                    placeholder: "Monitor",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 243,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "mouse_teclado",
-                                                                    placeholder: "Mouse / Teclado",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 244,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                                    name: "observaciones",
-                                                                    placeholder: "Observaciones...",
-                                                                    className: "inp-table-add",
-                                                                    autoComplete: "off"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 245,
-                                                                    columnNumber: 29
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                    type: "submit",
-                                                                    className: "btn-confirm-add",
-                                                                    children: "AÑADIR"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/InventarioClient.tsx",
-                                                                    lineNumber: 246,
-                                                                    columnNumber: 29
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            style: {
+                                                                padding: '10px 0',
+                                                                display: 'flex',
+                                                                justifyContent: 'flex-end'
+                                                            },
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                type: "button",
+                                                                className: "btn-premium-blue",
+                                                                onClick: ()=>{
+                                                                    setEquipoModalAreaId(area.id);
+                                                                    setMostrandoEquipoModal(true);
+                                                                },
+                                                                children: "+ AÑADIR EQUIPO"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/InventarioClient.tsx",
+                                                                lineNumber: 605,
+                                                                columnNumber: 29
+                                                            }, this)
+                                                        }, void 0, false, {
                                                             fileName: "[project]/app/InventarioClient.tsx",
-                                                            lineNumber: 235,
+                                                            lineNumber: 604,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/InventarioClient.tsx",
-                                                        lineNumber: 234,
+                                                        lineNumber: 603,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/InventarioClient.tsx",
-                                                    lineNumber: 233,
+                                                    lineNumber: 602,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/InventarioClient.tsx",
-                                            lineNumber: 168,
+                                            lineNumber: 564,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/InventarioClient.tsx",
-                                    lineNumber: 153,
+                                    lineNumber: 549,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/InventarioClient.tsx",
-                                lineNumber: 152,
+                                lineNumber: 548,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, area.id, true, {
                         fileName: "[project]/app/InventarioClient.tsx",
-                        lineNumber: 128,
+                        lineNumber: 513,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/app/InventarioClient.tsx",
-                lineNumber: 118,
+                lineNumber: 503,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/InventarioClient.tsx",
-        lineNumber: 52,
+        lineNumber: 209,
         columnNumber: 5
     }, this);
 }
-_s(InventarioClient, "enTQrkds9kxXUMfzZVfhasCN9EM=");
+_s(InventarioClient, "VbBNQnisEsQzjhk/NkF/t1YV0Ig=");
 _c = InventarioClient;
 var _c;
 __turbopack_context__.k.register(_c, "InventarioClient");
